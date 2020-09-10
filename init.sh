@@ -3,5 +3,5 @@ sudo rm -rf /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
 cd /home/box/web
 #gunicorn --bind='0.0.0.0:8080' hello:return_params
-ln -s /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
+sudo ln -s /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
 sudo service gunicorn restart
