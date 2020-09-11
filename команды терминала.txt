@@ -2,3 +2,5 @@ git clone https://github.com/gorbenko-anton/stepic_web_project.git /home/box/web
 cd web
 chmod ugo-x init.sh
 bash init.sh
+
+
