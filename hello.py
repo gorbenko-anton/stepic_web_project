@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 
 def return_params(environ, start_response):
-    data = [bytes(i + '\n', 'ascii') for i in environ['QUERY_STRING'].split('&')].join()
+    data = [bytes(i + '\n', 'ascii') for i in environ['QUERY_STRING'].split('&')]
+    print(data)
     status = '200 OK'
     response_headers = [
         ('Content-type', 'text/plain'),
