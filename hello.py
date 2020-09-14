@@ -8,5 +8,5 @@ def return_params(environ, start_response):
         ('Content-Length', str(len(data)))
     ]
     start_response(status, response_headers)
-    print(''.join(data))
-    return ''.join(data)
+    print(' '.join(data))
+    return ' '.join(data)
