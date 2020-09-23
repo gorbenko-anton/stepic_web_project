@@ -9,3 +9,4 @@ cd ask
 sudo django-admin.py startproject ask .
 sudo ./manage.py startapp qa
 sudo cp ../uploads/views.py ./qa/
+sudo cp ../uploads/urls.py ./ask/
