@@ -13,8 +13,8 @@ sudo cp ../uploads/settings.py ./ask/
 sudo cp ../uploads/urls.py ./ask/
 #sudo gunicorn --bind='0.0.0.0:8000' -w 2 -c /home/box/web/etc/hello.py hello:app &
 sudo gunicorn --bind='0.0.0.0:8000' -w 2 -c /home/box/web/etc/qa.py ask.wsgi:application
-
-
+sudo /etc/init.d/mysql start
+sudo mysql -uroot -e "create database stepik"
 
 #sudo pip3 install virtualenv
 #sudo pip3 install pathlib2
