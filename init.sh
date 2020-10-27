@@ -12,9 +12,15 @@ sudo cp ../uploads/views.py ./qa/
 sudo cp ../uploads/settings.py ./ask/
 sudo cp ../uploads/urls.py ./ask/
 #sudo gunicorn --bind='0.0.0.0:8000' -w 2 -c /home/box/web/etc/hello.py hello:app &
-sudo gunicorn --bind='0.0.0.0:8000' -w 2 -c /home/box/web/etc/qa.py ask.wsgi:application
+sudo gunicorn --bind='0.0.0.0:8000' -w 2 -c /home/box/web/etc/qa.py ask.wsgi:application &
 sudo /etc/init.d/mysql start
-sudo mysql -uroot -e "create database stepik"
+sudo mysql -uroot -e "create database stepic_web;"
+sudo mysql -uroot -e "grant all privileges on stepic_web.* to 'box'@'localhost' with grant option;"
+sudo cp ../uploads/models.py ./ask/qa/
+manage.py syncdb
+#sudo ./manage.py makemigrations
+#sudo ./manage.py migrate
+
 
 #sudo pip3 install virtualenv
 #sudo pip3 install pathlib2
