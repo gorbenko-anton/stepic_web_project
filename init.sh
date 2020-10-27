@@ -16,11 +16,10 @@ sudo gunicorn --bind='0.0.0.0:8000' -w 2 -c /home/box/web/etc/qa.py ask.wsgi:app
 sudo /etc/init.d/mysql start
 sudo mysql -uroot -e "create database stepic_web;"
 sudo mysql -uroot -e "grant all privileges on stepic_web.* to 'box'@'localhost' with grant option;"
-ls
-sudo cp ../web/uploads/models.py ./ask/qa/
-sudo ./ask/manage.py syncdb
-#sudo ./manage.py makemigrations
-#sudo ./manage.py migrate
+sudo cp ../uploads/models.py ../ask/qa/
+#sudo ./manage.py syncdb
+sudo ./manage.py makemigrations
+sudo ./manage.py migrate
 
 
 #sudo pip3 install virtualenv
