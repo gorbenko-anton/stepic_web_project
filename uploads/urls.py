@@ -28,6 +28,6 @@ urlpatterns = [
     url(r'^popular/$', views.test),
     url(r'^new/$', views.test),
 
-    url(r'^post/(?P<slug>\w+)/$', post_details, name='post-details'),
-    url(r'^tag/(?P<slug>\w+)/$', tag_details, name='tag-details'),
+    url(r'^post/(?P<slug>\w+)/$', post_details),#, name='post-details'),
+    url(r'^tag/(?P<slug>\w+)/$', tag_details),#, name='tag-details'),
 ]
