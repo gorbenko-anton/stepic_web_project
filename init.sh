@@ -14,6 +14,9 @@ sudo cp ../uploads/urls.py ./ask/
 
 sudo mkdir ./ask/blog
 sudo cp ../uploads/blog/post_details.html ./ask/blog
+sudo cp ../uploads/blog/post_by_tag.html ./ask/blog
+sudo cp ../uploads/blog/paginator.html ./ask/blog
+sudo cp ../uploads/blog/post_main.html ./ask/blog
 
 #sudo gunicorn --bind='0.0.0.0:8000' -w 2 -c /home/box/web/etc/hello.py hello:app &
 sudo gunicorn --bind='0.0.0.0:8000' -w 2 -c /home/box/web/etc/qa.py ask.wsgi:application &

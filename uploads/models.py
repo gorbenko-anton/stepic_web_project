@@ -26,3 +26,18 @@ class Answer(models.Model):
   added_at = models.DateTimeField(blank=True, auto_now_add=True)
   question = models.ForeignKey(Question)
   author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class PostManager(models.Manager):
+  def main(self, since, limit=10):
+    qs = self.order_by('-id')
+    res = []
+    if since is not None:
+      qs = qs.filter('id__lt'=since)
+    for p in qs[:1000]:
+      if len(res):
+        res.append(p)
+      elif res[-1].category != p.category:
+        res.append(p)
+      if len(res) >= limit:
+        break
+    return res
