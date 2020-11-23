@@ -20,17 +20,6 @@ def post_details(request, slug):
         'vote': vote,
     })
 
-class Tag(models.Model):
-    slug = models.SlugField(unique=True)
-    title = models.CharField(max_length=64)
-    
-    def get_url(self):
-        return reverse('blog:tag-details', kwargs={'slug': self.slug})
-    
-    def __unicode__(self):
-        return self.title
-
-
 def post_list_all(request):
     posts = Post.objects.filter(is_published=True)
     limit = request.GET.get('limit', 10)

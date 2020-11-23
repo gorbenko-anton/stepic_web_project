@@ -27,6 +27,14 @@ class Answer(models.Model):
   question = models.ForeignKey(Question)
   author = models.ForeignKey(User, on_delete=models.CASCADE)
 
+class Tag(models.Model):
+  slug = models.SlugField(unique=True)
+  title = models.CharField(max_length=64)
+  def get_url(self):
+    return reverse('blog:tag-details', kwargs={'slug': self.slug})
+  def __unicode__(self):
+    return self.title
+
 class PostManager(models.Manager):
   def main(self, since, limit=10):
     qs = self.order_by('-id')
