@@ -53,7 +53,7 @@ def paginate(request, qs):
     try:
         page = int(request.GET.get('page', 1))
     except ValueError:
-    raise Http404
+        raise Http404
     paginator = Paginator(qs, limit)
     try:
         page = paginator.page(page)
