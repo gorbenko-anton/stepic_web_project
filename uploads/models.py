@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 class QuestionManager(models.Manager):
   def new(self):
-    return self.order_by('-added_at')
+    return self.order_by('-id')
   def popular(self):
     return self.order_by('-rating')
 
@@ -32,7 +32,7 @@ class PostManager(models.Manager):
     qs = self.order_by('-id')
     res = []
     if since is not None:
-      qs = qs.filter('id__lt'=since)
+      qs = qs.filter(id__lt=since)
     for p in qs[:1000]:
       if len(res):
         res.append(p)
