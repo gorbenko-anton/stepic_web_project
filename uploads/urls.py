@@ -19,15 +19,19 @@ from qa import views
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.test),
-    url(r'^login/$', views.test),
-    url(r'^signup/$', views.test),
-    url(r'^question/\d+/$', views.test),
-    url(r'^ask/$', views.test),
-    url(r'^popular/$', views.test),
-    url(r'^new/$', views.test),
+#    url(r'^admin/', admin.site.urls),
+#    url(r'^$', views.test),
+#    url(r'^login/$', views.test),
+#    url(r'^signup/$', views.test),
+#    url(r'^question/\d+/$', views.test),
+#    url(r'^ask/$', views.test),
+#    url(r'^popular/$', views.test),
+#    url(r'^new/$', views.test),
 
-    url(r'^post/(?P<slug>\w+)/$', views.post_details, name='post-details'),
-    url(r'^tag/(?P<slug>\w+)/$', views.tag_details, name='tag-details'),
+#    url(r'^post/(?P<slug>\w+)/$', views.post_details, name='post-details'),
+#    url(r'^tag/(?P<slug>\w+)/$', views.tag_details, name='tag-details'),
+
+    url(r'^question/(?P<id>\d+)/$', views.post_details, name='post-details'),
+#    url(r'^post/(?P<slug>\w+)/$', views.post_details, name='post-details'),
+#    url(r'^post/(?P<slug>\w+)/$', views.post_details, name='post-details'),
 ]

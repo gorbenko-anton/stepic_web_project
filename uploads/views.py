@@ -7,17 +7,16 @@ from django.core.paginator import Paginator
 def test(request, *args, **kwargs):
     return HttpResponse('OK')
 
-def post_details(request, slug):
-    post = get_object_or_404(Post, slug=slug)
+def post_details(request, id):
+    post = get_object_or_404(Question, id=id)
     try:
-        vote = post.votes.filter(user=request.user)[0]
-    except Vote.DoesNotExist:
-        vote = None
+        answer = question.answer.filter(id=request.id)[0]
+    except Answer.DoesNotExist:
+        answer = None
     return render(request, 'blog/post_details.html', {
-        'post': post,
-        'category': post.category,
-        'tags': post.tags.all()[:],
-        'vote': vote,
+        'title': question.title,
+        'text': question.text,
+        'answer': question.answer.all()[:],
     })
 
 def post_list_all(request):

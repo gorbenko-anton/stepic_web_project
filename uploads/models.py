@@ -12,6 +12,21 @@ class QuestionManager(models.Manager):
   def popular(self):
     return self.order_by('-rating')
 
+class PostManager(models.Manager):
+  def main(self, since, limit=10):
+    qs = self.order_by('-id')
+    res = []
+    if since is not None:
+      qs = qs.filter(id__lt=since)
+    for p in qs[:1000]:
+      if len(res):
+        res.append(p)
+      elif res[-1].category != p.category:
+        res.append(p)
+      if len(res) >= limit:
+        break
+    return res
+
 class Question(models.Model):
   objects = QuestionManager()
   title = models.CharField(max_length=255)
@@ -35,17 +50,3 @@ class Tag(models.Model):
   def __unicode__(self):
     return self.title
 
-class PostManager(models.Manager):
-  def main(self, since, limit=10):
-    qs = self.order_by('-id')
-    res = []
-    if since is not None:
-      qs = qs.filter(id__lt=since)
-    for p in qs[:1000]:
-      if len(res):
-        res.append(p)
-      elif res[-1].category != p.category:
-        res.append(p)
-      if len(res) >= limit:
-        break
-    return res
