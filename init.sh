@@ -9,6 +9,7 @@ cd ask
 sudo django-admin.py startproject ask .
 sudo ./manage.py startapp qa
 sudo cp ../uploads/views.py ./qa/
+sudo cp ../uploads/models.py ./qa/
 sudo cp ../uploads/settings.py ./ask/
 sudo cp ../uploads/urls.py ./ask/
 
@@ -25,7 +26,6 @@ sudo gunicorn --bind='0.0.0.0:8000' -w 2 -c /home/box/web/etc/qa.py ask.wsgi:app
 sudo /etc/init.d/mysql start
 sudo mysql -uroot -e "create database stepic_web;"
 sudo mysql -uroot -e "grant all privileges on stepic_web.* to 'box'@'localhost' with grant option;"
-sudo cp ../uploads/models.py ../ask/qa/
 #sudo ./manage.py syncdb
 sudo ./manage.py makemigrations
 sudo ./manage.py migrate
