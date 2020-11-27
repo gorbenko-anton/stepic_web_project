@@ -19,6 +19,19 @@ def post_details(request, id):
         'answer': question.answer.all()[:],
     })
 
+def new_questions(request):
+    questions = QuestionManager.new() #.filter(is_published=True)
+    limit = request.GET.get('limit', 10)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(questions, limit)
+    paginator.baseurl = '/?page='
+    page = paginator.page(page) # Page
+    return render(request, 'blog/new_questions.html', {
+        'questions': page.object_list,
+        'paginator': paginator,
+        'page': page,
+    })
+
 def post_list_all(request):
     posts = Post.objects.filter(is_published=True)
     limit = request.GET.get('limit', 10)

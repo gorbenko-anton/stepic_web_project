@@ -32,6 +32,7 @@ urlpatterns = [
 #    url(r'^tag/(?P<slug>\w+)/$', views.tag_details, name='tag-details'),
 
     url(r'^question/(?P<id>\d+)/$', views.post_details, name='post-details'),
+    url(r'^$', views.new_questions, name='new-questions'),
 #    url(r'^post/(?P<slug>\w+)/$', views.post_details, name='post-details'),
 #    url(r'^post/(?P<slug>\w+)/$', views.post_details, name='post-details'),
 ]
