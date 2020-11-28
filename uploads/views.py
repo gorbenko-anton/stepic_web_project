@@ -22,6 +22,7 @@ def post_details(request, id):
     })
 
 def new_questions(request):
+    from qa import models
     questions = Question.objects.new() #.filter(is_published=True)
     limit = request.GET.get('limit', 10)
     page = request.GET.get('page', 1)
