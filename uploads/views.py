@@ -21,7 +21,7 @@ def post_details(request, id):
     })
 
 def new_questions(request):
-    questions = get_object_or_404(Question, id=1)#Question.objects.new() #.filter(is_published=True)
+    questions = Answer.objects.new() #.filter(is_published=True)
     limit = request.GET.get('limit', 10)
     page = request.GET.get('page', 1)
     paginator = Paginator(questions, limit)
