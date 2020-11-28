@@ -8,11 +8,11 @@ sudo mkdir ask
 cd ask
 sudo django-admin.py startproject ask .
 sudo ./manage.py startapp qa
+
 sudo cp ../uploads/views.py ./qa/
 sudo cp ../uploads/models.py ./qa/
 sudo cp ../uploads/settings.py ./ask/
 sudo cp ../uploads/urls.py ./ask/
-
 sudo mkdir ./ask/blog
 sudo cp ../uploads/blog/post_details.html ./ask/blog
 sudo cp ../uploads/blog/post_by_tag.html ./ask/blog
