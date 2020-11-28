@@ -4,6 +4,12 @@ from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator
 
+from ask.qa.models import Question
+from ask.qa import models
+from qa import models
+from ask import models
+from qa import Question
+from ask import Question
 
 def test(request, *args, **kwargs):
     return HttpResponse('OK')
@@ -21,7 +27,7 @@ def post_details(request, id):
     })
 
 def new_questions(request):
-    questions = Answer.objects.new() #.filter(is_published=True)
+    questions = Question.objects.new() #.filter(is_published=True)
     limit = request.GET.get('limit', 10)
     page = request.GET.get('page', 1)
     paginator = Paginator(questions, limit)
