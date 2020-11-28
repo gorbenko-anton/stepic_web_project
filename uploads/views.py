@@ -4,11 +4,11 @@ from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator
 
-from ask.qa.models import Question
-from ask.qa import models
+#from ask.qa.models import Question
 from qa import models
-from ask import models
 from qa import Question
+from ask import models
+from ask.qa import models
 from ask import Question
 
 def test(request, *args, **kwargs):
