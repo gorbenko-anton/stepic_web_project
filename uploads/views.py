@@ -10,7 +10,7 @@ from qa import models
 #from ask.qa.models import Question
 #from qa import Question
 #from ask import models
-from ask.qa import models
+#from ask.qa import models
 #from ask import Question
 
 def test(request, *args, **kwargs):
